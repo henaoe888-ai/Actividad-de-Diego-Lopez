@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Producto</title>
+</head>
+
+<body>
+
+<h1>Creación de Producto</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <label>Nombre:</label><br>
+        <input
+            type="text"
+            name="nombre"
+            value="{{ producto.nombre|default:'' }}"
+            required
+        > 
+    </p>
+
+    <p>
+        <label>Categoría:</label><br>
+        <input
+            type="number"
+            name="categoria"
+            value="{{ producto.categoria|default:'' }}"
+            required
+        >
+    </p>
+
+    <p>
+        <label>Precio:</label><br>
+        <input
+            type="number"
+            name="precio"
+            value="{{ producto.precio|default:'' }}"
+            required
+        >
+    </p>
+
+    <p>
+        <label>Stock:</label><br>
+        <input
+            type="number"
+            name="stock"
+            value="{{ producto.stock|default:'' }}"
+            required
+        >
+
+    <button type="submit">
+        Guardar
+    </button>
+
+</form>
+
+<br>
+
+<a href="/productos/listar/">
+    Ver productos
+</a>
+
+</body>
+
+</html>

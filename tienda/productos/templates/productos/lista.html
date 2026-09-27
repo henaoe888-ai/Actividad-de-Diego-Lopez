@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Productos</title>
+</head>
+
+<body>
+
+<h1>Lista de Productos</h1>
+
+<a href="/productos/crear/">
+    Nuevo producto
+</a>
+
+<hr>
+
+{% for producto in productos %}
+
+    <h3>Nombre: {{ producto.nombre }}</h3>
+
+    <p>Categoria: {{ producto.categoria }}</p>
+
+    <p>Precio: ${{ producto.precio }}</p>
+
+    <p>Stock: {{ producto.stock }}</p>
+
+    <a href="/productos/detalle/{{ producto.id }}/">
+        Ver
+    </a>
+
+    |
+
+    <a href="/productos/editar/{{ producto.id }}/">
+        Editar
+    </a>
+
+    |
+
+    <a href="/productos/eliminar/{{ producto.id }}/">
+        Eliminar
+    </a>
+
+    <hr>
+
+{% empty %}
+
+    <p>No hay productos.</p>
+
+{% endfor %}
+
+</body>
+
+</html>

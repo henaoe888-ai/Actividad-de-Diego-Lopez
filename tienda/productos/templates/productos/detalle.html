@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de Producto</title>
+</head>
+
+<body>
+
+<h1>Detalle del producto</h1>
+
+<p>
+    <strong>Nombre:</strong>
+    {{ producto.nombre }}
+</p>
+
+<p>
+    <strong>Categoría:</strong>
+    {{ producto.categoria }}
+</p>
+
+<p>
+    <strong>Precio:</strong>
+    {{ producto.precio }}
+</p>
+
+<p>
+    <strong>Stock:</strong>
+    {{ producto.stock }}
+</p>
+
+<br>
+
+<a href="/productos/editar/{{ producto.id }}/">
+    Editar
+</a>
+
+<br><br>
+
+<a href="/productos/listar/">
+    Volver
+</a>
+
+</body>
+
+</html>
