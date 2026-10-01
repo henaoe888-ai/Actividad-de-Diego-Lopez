@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de la categoría</title>
+</head>
+
+<body>
+
+<h1>Detalle de la categoría</h1>
+
+<p>
+    <strong>Nombre:</strong>
+    {{ categoria.nombre }}
+</p>
+
+
+<p>
+    <strong>Observaciones:</strong>
+    {{ categoria.observaciones }}
+</p>
+
+<br>
+
+<a href="/categorias/editar/{{ categoria.id }}/">
+    Editar
+</a>
+
+<br><br>
+
+<a href="/categorias/lista/">
+    Volver
+</a>
+
+</body>
+
+</html>
