@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Categorías</title>
+
+    <style>
+        html {
+            background-color: #eef1f4;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333333;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border: 1px solid #d9e0e6;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #0e6b73;
+            margin-top: 0;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #0e6b73;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #6b7a86;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #c5ced6;
+            border-radius: 6px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #0e6b73;
+            box-shadow: 0 0 0 3px #d4eaec;
+        }
+
+        button {
+            background-color: #0e6b73;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0a545b;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #0e6b73;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Registro de categorias</h1>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <p>
+            <label>Nombre:</label><br>
+            <input type="text" name="nombre" value="{{ categorias.nombre|default:'' }}" required>
+        </p>
+
+
+        <p>
+            <label>Observaciones:</label><br>
+            <textarea name="observaciones" required>{{ categorias.observaciones|default:'' }}</textarea>
+        </p>
+
+        <p>
+        <label>Estado:</label><br>
+        <input type="boolean" name="estado" value="{{ categorias.estado|default:'' }}" required>
+    </p>
+
+
+
+        <button type="submit">
+            Guardar
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/categorias/lista/">
+        Ver categorías
+    </a>
+
+</body>
+
+</html>

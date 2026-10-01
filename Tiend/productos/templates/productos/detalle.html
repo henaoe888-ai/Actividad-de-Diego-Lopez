@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de Producto</title>
+    <style>
+        html {
+            background-color: #eef1f4;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333333;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border: 1px solid #d9e0e6;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #0e6b73;
+            margin-top: 0;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #0e6b73;
+        }
+
+        p {
+            margin: 0;
+            padding: 12px 0;
+            border-bottom: 1px solid #e3e8ec;
+            font-size: 18px;
+        }
+
+        strong {
+            display: block;
+            font-size: 14px;
+            color: #6b7a86;
+        }
+
+        br {
+            display: none;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:first-of-type {
+            background-color: #0e6b73;
+            color: white;
+            margin-right: 10px;
+        }
+
+        a:first-of-type:hover {
+            background-color: #0a545b;
+        }
+
+        a:last-of-type {
+            color: #0e6b73;
+            border: 1px solid #0e6b73;
+        }
+
+        a:last-of-type:hover {
+            background-color: #eef7f8;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Detalle del producto</h1>
+
+<p>
+    <strong>Nombre:</strong>
+    {{ productos.nombre }}
+</p>
+
+<p>
+    <strong>Categoría:</strong>
+    {{ productos.categoria }}
+</p>
+
+<p>
+    <strong>Precio:</strong>
+    {{ productos.precio }}
+</p>
+
+<p>
+    <strong>Stock:</strong>
+    {{ productos.stock }}
+</p>
+
+<p>
+    <strong>Estado:</strong>
+    {{productos.estado}}
+</p>
+
+<br>
+
+<a href="/productos/editar/{{ productos.id }}/">
+    Editar
+</a>
+
+<br><br>
+
+<a href="/productos/listar/">
+    Volver
+</a>
+
+</body>
+
+</html>

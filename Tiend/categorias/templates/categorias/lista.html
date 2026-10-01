@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Categorias</title>
+    <style>
+        html {
+            background-color: #eef1f4;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #9aa7b2;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border: 1px solid #d9e0e6;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #0e6b73;
+            margin-top: 0;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #0e6b73;
+        }
+
+        h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+            color: #1c2730;
+        }
+
+        p {
+            margin: 4px 0 10px;
+            font-size: 15px;
+            color: #555555;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e3e8ec;
+            margin: 20px 0;
+        }
+
+        a {
+            color: #0e6b73;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Botón "Nueva categoría" (el enlace que va justo después del título) */
+        h1 + a {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 6px;
+            background-color: #0e6b73;
+            color: white;
+        }
+
+        h1 + a:hover {
+            background-color: #0a545b;
+            text-decoration: none;
+        }
+
+        /* Enlace "Eliminar" en rojo */
+        a[href*="eliminar"] {
+            color: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Lista de Categorias</h1>
+
+<a href="/categorias/crear/">
+    Nueva categoría
+</a>
+
+<hr>
+
+{% for categoria in categorias %}
+
+    <h3>{{ categoria.nombre }}</h3>
+
+    <p>{{ categoria.observaciones }}</p>
+
+    <p>{{ categoria.estado }}</p>
+
+    <a href="/categorias/detalle/{{ categorias.id }}/">
+        Ver
+    </a>
+
+    |
+
+    <a href="/categorias/editar/{{ categorias.id }}/">
+        Editar
+    </a>
+
+    |
+
+    <a href="/categorias/eliminar/{{ categoria.id }}/">
+        Eliminar
+    </a>
+
+    <hr>
+
+{% empty %}
+
+    <p>No hay categorías.</p>
+
+{% endfor %}
+
+</body>
+
+</html>
